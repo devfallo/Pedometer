@@ -41,7 +41,7 @@
           <button id="mockStepBtn" class="ghost">+10 걸음(테스트)</button>
         </div>
         <p class="help">
-          휴대폰에서는 걸으면서 자동 감지를 시도하고, 데스크톱/제한 환경에서는 테스트 버튼으로 진행할 수 있어요.
+          도전 시작 전에 센서 권한 요청이 필수예요. 데스크톱/제한 환경에서는 테스트 버튼으로 진행할 수 있어요.
         </p>
       </section>
 
@@ -52,13 +52,17 @@
         <div class="progress-wrap" aria-label="걸음 진행률">
           <div id="progressBar" class="progress"></div>
         </div>
-        <p id="message">목표를 설정하고 도전을 시작하세요!</p>
+        <p id="message">센서 권한 요청 후 도전을 시작하세요!</p>
       </section>
 
       <section class="panel race-panel">
         <h2>레이스</h2>
         <div id="raceTrack" class="race-track">
-          <div class="finish-flag">🏁</div>
+          <svg class="map-path" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <polyline id="racePath" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></polyline>
+          </svg>
+          <div id="decoLayer" class="deco-layer" aria-hidden="true"></div>
+          <div id="finishFlag" class="finish-flag">🏁</div>
           <div id="runner" class="runner">🏃</div>
         </div>
       </section>
