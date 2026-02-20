@@ -1,0 +1,171 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f4f7fb;
+  --panel: #ffffff;
+  --text: #111827;
+  --accent: #2563eb;
+  --muted: #6b7280;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Pretendard", "Noto Sans KR", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: #1f2937;
+  color: #fff;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.layout {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 8%);
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+  margin-bottom: 0.85rem;
+}
+
+input,
+select,
+button {
+  font: inherit;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  padding: 0.55rem 0.7rem;
+}
+
+button {
+  cursor: pointer;
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+button.ghost {
+  background: transparent;
+  color: var(--accent);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn-row {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 0.6rem;
+}
+
+.help {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.progress-wrap {
+  width: 100%;
+  height: 14px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+
+.progress {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+  transition: width 0.25s ease-out;
+}
+
+.race-track {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 230px;
+  border-radius: 12px;
+  border: 2px solid #d1d5db;
+  background-size: cover;
+  background-position: center;
+}
+
+.finish-flag {
+  position: absolute;
+  right: 12px;
+  bottom: 26px;
+  font-size: 2rem;
+}
+
+.runner {
+  position: absolute;
+  bottom: 20px;
+  left: 8px;
+  font-size: 2.2rem;
+  transform: translateX(0);
+  transition: transform 0.22s ease-out;
+}
+
+.runner.running {
+  animation: hop 0.45s infinite;
+}
+
+@keyframes hop {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -6px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --panel: #111827;
+    --text: #f3f4f6;
+    --muted: #9ca3af;
+  }
+
+  input,
+  select,
+  button {
+    border-color: #374151;
+  }
+
+  .progress-wrap {
+    background: #374151;
+  }
+
+  .race-track {
+    border-color: #374151;
+  }
+}
