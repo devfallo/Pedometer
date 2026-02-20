@@ -21,7 +21,9 @@ python3 -m http.server 4173
 이 저장소에는 `.github/workflows/deploy-pages.yml` 워크플로가 포함되어 있어 `main` 브랜치 푸시 시 자동 배포됩니다.
 
 1. GitHub 저장소 `Settings > Pages`에서 **Source를 GitHub Actions**로 설정
-2. `main` 브랜치에 푸시
+2. 배포는 아래 둘 중 하나로 실행
+   - `main` 브랜치에 새 커밋 푸시
+   - Actions 탭에서 `Deploy static PWA to GitHub Pages` 워크플로를 **Run workflow**로 수동 실행
 3. Actions 탭에서 `Deploy static PWA to GitHub Pages` 성공 확인
 4. 배포 URL 접속 후 홈 화면에 추가해 앱처럼 사용
 
