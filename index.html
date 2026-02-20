@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1f2937" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icons/icon-192.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icons/icon-192.svg" />
+    <title>캐릭터 만보기 러너</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>캐릭터 만보기 러너</h1>
+      <button id="installBtn" class="ghost" hidden>홈 화면에 추가</button>
+    </header>
+
+    <main class="layout">
+      <section class="panel controls">
+        <h2>게임 설정</h2>
+        <div class="field">
+          <label for="goalSteps">목표 걸음 수</label>
+          <input id="goalSteps" type="number" min="100" step="100" value="3000" />
+        </div>
+        <div class="field">
+          <label for="character">캐릭터 선택</label>
+          <select id="character">
+            <option value="runner">🏃 러너</option>
+            <option value="cat">🐱 고양이</option>
+            <option value="robot">🤖 로봇</option>
+            <option value="unicorn">🦄 유니콘</option>
+          </select>
+        </div>
+        <div class="btn-row">
+          <button id="newMapBtn">랜덤 맵 바꾸기</button>
+          <button id="startBtn">도전 시작</button>
+        </div>
+        <div class="btn-row">
+          <button id="motionBtn" class="ghost">센서 권한 요청</button>
+          <button id="mockStepBtn" class="ghost">+10 걸음(테스트)</button>
+        </div>
+        <p class="help">
+          휴대폰에서는 걸으면서 자동 감지를 시도하고, 데스크톱/제한 환경에서는 테스트 버튼으로 진행할 수 있어요.
+        </p>
+      </section>
+
+      <section class="panel status">
+        <h2>진행 상황</h2>
+        <p><strong id="mapName">맵: 준비 중</strong></p>
+        <p>현재 걸음 수: <span id="currentSteps">0</span> / <span id="goalLabel">3000</span></p>
+        <div class="progress-wrap" aria-label="걸음 진행률">
+          <div id="progressBar" class="progress"></div>
+        </div>
+        <p id="message">목표를 설정하고 도전을 시작하세요!</p>
+      </section>
+
+      <section class="panel race-panel">
+        <h2>레이스</h2>
+        <div id="raceTrack" class="race-track">
+          <div class="finish-flag">🏁</div>
+          <div id="runner" class="runner">🏃</div>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
